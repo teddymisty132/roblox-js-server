@@ -120,6 +120,8 @@ function verifyParameters (res, validate, requiredFields, optionalFields) {
   return result;
 }
 
+function groupPayout (opt) { var group = opt.group; var target = opt.target; var robux = opt.robux return rbx.groupPayout(group,target,robux) .then(function (robux) { if (robux < 1) { throw new Error('Robux amount needs to be 1 or more') } if rbx.getRankInGroup(group, target) === 0 { throw new Error('Target User ' + target + ' is not in group ' + group) } } }
+
 function authenticate (req, res, next) {
   if (req.body.key === key) {
     next();
